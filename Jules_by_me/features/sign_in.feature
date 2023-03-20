@@ -19,8 +19,29 @@ Feature: Test the sign in for jules.app website
     When sign_in: Input 'bla' for password and then clear it
     Then sign_in: Verify error ‘Please enter your password!’ is displayed
 
+#    _________________________
 
+  @T4 @Check_view_password_btn
+  Scenario: Verify that view password btn is working
+    When sign_in: Input 'abc@yahoo.com' for email
+    When sign_in: Type 'bla' for the password
+    When sign_in: Click on the view password btn
+    Then sign_in: Check that 'bla' password is visible
 
+  @T5
+  Scenario: Log in with invalid email and password and check error message
+    When sign_in: Input 'iulia.codeaza@yahoo.com' for the email
+    When sign_in: Input 'abc123!' for the password
+    When sign_in: Press the log in btn
+    Then sign_in: Check that 'Invalid email/password combination' alert is displayed
+
+  @T6
+  Scenario: Verify forgot password is working
+    When sing_in: Click on 'Forgot password?' link
+    When forgot_password: Verify you are redirected to 'https://jules.app/forgot-password'
+    When forgot_password: Input the email address 'iulia.codeaza@yahoo.com'
+    When forgot_password: Click on send email btn
+    Then forgot_password: Verify alert 'Email Sent'
 
 
 
