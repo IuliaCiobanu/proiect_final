@@ -15,3 +15,4 @@ def after_all(context):
     # * after_all este o metoda recunoscuta de libraria behave si care se
     #     #  va executa dupa de toate testele
     context.browser.close()
+

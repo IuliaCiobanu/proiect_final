@@ -37,10 +37,7 @@ def step_impl(context):
     context.sign_in_object.check_error_msg_no_pswd()
 
 # ___@T4 Scenario: Verify that view password btn is working
-
-# @when ("sign_in: Input 'abc@yahoo.com' for email")
-# def step_impl(context):
-#     context.sign_in_object.add_email('abc@yahoo.com')
+# @when ("sign_in: Input 'abc@yahoo.com' for email") - se repeta
 
 @when ("sign_in: Type 'bla' for the password")
 def step_impl(context):
@@ -92,3 +89,47 @@ def step_impl(context):
 @then ("forgot_password: Verify alert 'Email Sent'")
 def step_impl(context):
     context.sign_in_object.verify_alert_email_sent()
+
+
+# ------T7 Verify if Download on the App Store is working
+
+@when ("sign_in: Click Download on the App Store icon")
+def step_impl(context):
+    context.sign_in_object.click_download_on_app_store()
+@then ("sign_in: Verify if you are redirected on Apple Store")
+def step_impl(context):
+    context.sign_in_object.redirected_on_app_store()
+
+# --------------T8 Verify if Get it on Google Play is working
+@when ("sign_in: Click Get it on Google Play icon")
+def step_impl(context):
+    context.sign_in_object.click_download_on_google_play()
+@then ("sign_in: Verify if you are redirected on Google Play")
+def step_impl(context):
+    context.sign_in_object.redirected_on_google_play()
+
+# -------------T9 Verify if FAQ link is working
+@when ("sign_in: Click on FAQ link")
+def step_impl(context):
+    context.sign_in_object.click_FAQ_link()
+@then ("sign_in: Verify if you are redirected on 'https://static.jules.app/faq.html'")
+def step_impl(context):
+    context.sign_in_object.verify_redirected_on_fqa()
+
+
+# ------T10 Log in with correct email and password
+@when("sign_in: Input 'iulia.codeaza@gmail.com' for the email")
+def step_impl(context):
+    context.sign_in_object.add_email('iulia.codeaza@gmail.com')
+
+@when("sign_in: Input 'Buburuza17!' for the password")
+def step_impl(context):
+    context.sign_in_object.add_password('Buburuza17!')
+
+@when("sign_in: Press log in btn")
+def step_impl(context):
+    context.sign_in_object.click_login_btn()
+
+@then ("sign_in: Verify you are logged in")
+def step_impl(context):
+    context.sign_in_object.verify_you_logged_in()
