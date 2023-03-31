@@ -17,14 +17,9 @@ class Sign_in(Base_page):
     ALERT_NO_ACCOUNT = (By.XPATH,"//*[@id='client-snackbar']/div/div/span")
     LOGGED_IN_HOUSEHOLD_NAME=(By.XPATH,"//span[@class='css-1h5x3dy']/span")
     ACCOUNT_ICON = (By.XPATH, "//*[@id='root']/div[1]/div[1]/div/div[2]/div[3]/svg/path")
-
     APP_STORE_ICON = (By.XPATH,"//*[@id='root']/div/div[3]/div/div[2]/div[1]/a/img")
     GOOGLE_PLAY_ICON =(By.XPATH,"//*[@id='root']/div/div[3]/div/div[2]/div[2]/a/img")
-
     FAQ_LINK = (By.XPATH,"//*[@id='root']/div/div[3]/div/div[3]/a[1]")
-    TERMS_CONDITIONS_LINK = (By.XPATH, "//*[@id='root']/div/div[3]/div/div[3]/a[2]")
-    PRIVACY_POLICY_LINK = (By.XPATH, "//*[@id='root']/div/div[3]/div/div[3]/a[3]")
-
 
     def navigate_to_sign_in_page(self):
         self.chrome.get( 'https://jules.app/sign-in' )

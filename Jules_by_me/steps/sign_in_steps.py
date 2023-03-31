@@ -4,16 +4,15 @@ from behave import *
 def step_impl(context):
     context.sign_in_object.navigate_to_sign_in_page()
 
-@when("sign_in: Type 'abc' for the email")
-def step_impl(context):
-    context.sign_in_object.add_email('abc')
+@when("sign_in: Type {email} for the email")
+def step_impl(context,email):
+    context.sign_in_object.add_email(email)
 
 @then("sign_in: Verify error ‘Please enter a valid email address!’ is displayed")
 def step_impl(context):
     context.sign_in_object.verify_no_valid_email_msg_displayed()
 
 # //////////// T2
-
 @when("sign_in: Input 'abc@yahoo.com' for email")
 def step_impl(context):
     context.sign_in_object.add_email('abc')
@@ -23,7 +22,6 @@ def step_impl(context):
     context.sign_in_object.verify_login_btn_is_disable()
 
 # ///////////T3 Verify if error message is displayed when typing the correct email and clearing the password
-
 @when("sign_in: Type 'abc@yahoo.com' for email")
 def step_impl(context):
     context.sign_in_object.add_email('abc@yahoo.com')
@@ -38,7 +36,6 @@ def step_impl(context):
 
 # ___@T4 Scenario: Verify that view password btn is working
 # @when ("sign_in: Input 'abc@yahoo.com' for email") - se repeta
-
 @when ("sign_in: Type 'bla' for the password")
 def step_impl(context):
     context.sign_in_object.add_password('bla')
@@ -52,7 +49,6 @@ def step_impl(context):
     context.sign_in_object.check_password_visible_btn()
 
 # -----@T5 Log in with invalid email and password and check error message
-
 @when ("sign_in: Input 'iulia.codeaza@yahoo.com' for the email")
 def step_impl(context):
     context.sign_in_object.add_email('iulia.codeaza@yahoo.com')
@@ -90,9 +86,7 @@ def step_impl(context):
 def step_impl(context):
     context.sign_in_object.verify_alert_email_sent()
 
-
 # ------T7 Verify if Download on the App Store is working
-
 @when ("sign_in: Click Download on the App Store icon")
 def step_impl(context):
     context.sign_in_object.click_download_on_app_store()
@@ -115,7 +109,6 @@ def step_impl(context):
 @then ("sign_in: Verify if you are redirected on 'https://static.jules.app/faq.html'")
 def step_impl(context):
     context.sign_in_object.verify_redirected_on_fqa()
-
 
 # ------T10 Log in with correct email and password
 @when("sign_in: Input 'iulia.codeaza@gmail.com' for the email")

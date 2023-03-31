@@ -4,9 +4,15 @@ Feature: Test the sign in for jules.app website
     Given sign_in: I am a user on sign-in page
 
   @T1 @sign_in_incorrect_email_format
-  Scenario: Verify if error message is displayed when not typing the correct email format
-    When sign_in: Type 'abc' for the email
+  Scenario Outline: Verify if error message is displayed when not typing the correct email format
+    When sign_in: Type "<email>" for the email
     Then sign_in: Verify error ‘Please enter a valid email address!’ is displayed
+    Examples:
+      | email       |
+      | abc.com     |
+      | 123         |
+      | sam         |
+      | sdsf@sdfsdf |
 
   @T2 @sign_in_correct_email_no_password
   Scenario: Verify if sign in btn is disable when typing the correct email and skipping the password input
@@ -25,7 +31,6 @@ Feature: Test the sign in for jules.app website
     When sign_in: Type 'bla' for the password
     When sign_in: Click on the view password btn
     Then sign_in: Check that 'bla' password is visible
-
   @T5 @invalid_email_and_password
   Scenario: Log in with invalid email and password and check error message
     When sign_in: Input 'iulia.codeaza@yahoo.com' for the email
@@ -41,7 +46,6 @@ Feature: Test the sign in for jules.app website
     When forgot_password: Click on send email btn
     Then forgot_password: Verify alert 'Email Sent'
 
-
   @T7
   Scenario: Verify if Download on the App Store is working
     When sign_in: Click Download on the App Store icon
@@ -56,7 +60,6 @@ Feature: Test the sign in for jules.app website
   Scenario: Verify if FAQ link is working
     When sign_in: Click on FAQ link
     Then sign_in: Verify if you are redirected on 'https://static.jules.app/faq.html'
-
 
   @T10
   Scenario: Log in with correct email and password
